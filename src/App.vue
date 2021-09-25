@@ -1,27 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <HelloWorld v-if="theObject" :the-object="theObject"/>
+  <p>{{ otherObject }}</p>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 import HelloWorld from './components/HelloWorld.vue';
+import {Watch} from "vue-property-decorator";
 
 @Options({
   components: {
     HelloWorld,
-  },
+  }
 })
-export default class App extends Vue {}
-</script>
+export default class App extends Vue {
+  theObject: any = null;
+  otherObject: any = null;
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  @Watch('otherObject')
+  watchOtherObject() {
+    this.theObject = window.theOutsideObject;
+    console.log('changed', window.theOutsideObject)
+  }
 }
-</style>
+</script>

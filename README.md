@@ -1,24 +1,7 @@
-# test
+**This project is a Vuejs3 error project.**
 
-## Project setup
-```
-yarn install
-```
+To try it:
+* Click on the `set object value` button.
+* Then, click on the `Delete outside` button.
+* Then, click on the `set object value` button. Something was supposed to happen.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
